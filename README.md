@@ -1,3 +1,1 @@
-"# harvest_time_recommendation" 
-"# harvest_time_recommendation" 
-"# harvest_time_recommendation" 
+Harvest Time Recommendation is a machine learning–powered web application that helps farmers and agricultural stakeholders determine the optimal time to harvest crops to maximize yield and quality. The system combines environmental and crop-specific parameters with a trained prediction model and exposes recommendations through an easy-to-use web interface.
