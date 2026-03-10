@@ -1,0 +1,27 @@
+# Live Weather & Risk Assessment Integration
+
+This module will add real-time environmental context to the AI prediction engine, allowing the app to recommend harvesting a crop based on imminent weather risks.
+
+## Proposed Changes
+
+### Backend (FastAPI - [backend/main.py](file:///c:/Users/katik/OneDrive/Desktop/EVERYTHING/harvest/perishable-farming-platform/backend/main.py))
+New tools and APIs:
+- Add `httpx` and `python-dotenv` to [requirements.txt](file:///c:/Users/katik/OneDrive/Desktop/EVERYTHING/harvest/perishable-farming-platform/backend/requirements.txt).
+- Set up a `.env` file for OpenWeatherMap API Keys.
+- Create a new endpoint `POST /weather-risk` that takes `latitude` and `longitude`.
+- Implements logic to call OpenWeatherMap One Call API or Current Weather API.
+- Generates a "Harvest Risk Score" based on simple heuristics (e.g., if rain > 10mm, risk = High).
+
+### Frontend (React Components)
+New tools and APIs:
+- Uses browser geolocation `navigator.geolocation.getCurrentPosition()`.
+- Updates [src/components/Dashboard.jsx](file:///c:/Users/katik/OneDrive/Desktop/EVERYTHING/harvest/perishable-farming-platform/frontend/src/components/Dashboard.jsx) to fetch and pass coordinates to the backend when the app loads.
+- Creates `src/components/WeatherWidget.jsx` to display current weather status, a 5-day simplified forecast, and the computed Harvest Risk Score.
+
+## Verification Plan
+### Automated testing
+- Not applicable for this hackathon sprint.
+
+### Manual Verification
+- Ask user to approve browser location prompt.
+- Verify Weather Widget properly loads and correctly calculates a "Harvest Risk Score".
